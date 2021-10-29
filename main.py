@@ -43,14 +43,14 @@ def get_profile_data(userid):
         
     print(rendertext(profile_data))
     
-    main_username = profile_data['user']['username']
-    profile_data['usernames'] = f'"{main_username}"'
-    
-    for mutual_guild in profile_data['mutual_guilds']:
-        guild_nicknames = mutual_guild['nick']
-        profile_data['usernames'] += f' "{guild_nicknames}" '
-    
     if sherlock:
+        main_username = profile_data['user']['username']
+        profile_data['usernames'] = f'"{main_username}"'
+
+        for mutual_guild in profile_data['mutual_guilds']:
+            guild_nicknames = mutual_guild['nick']
+            profile_data['usernames'] += f' "{guild_nicknames}" '
+        
         print("Please wait. We are analyz nicknames")
         console(f"python3 ./sherlock/sherlock --timeout 1 {profile_data['usernames']}")
         

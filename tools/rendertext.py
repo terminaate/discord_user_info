@@ -27,41 +27,50 @@ def rendertext(profile_data):
                 f"https://discord.com/api/v9/guilds/{mutual_guild['id']}/preview",
                 headers=header).text)
             profile_data['guilds'] += f"""\n
-    Guild ID : {mutual_guild['id']}
-    User Guild Nick : {mutual_guild['nick']}
-    Guild name : {guild_data['name']}
-    Guild description : {guild_data['description']}\n"""
+\tGuild ID : {mutual_guild['id']}
+\tUser Guild Nick : {mutual_guild['nick']}
+\tGuild name : {guild_data['name']}
+\tGuild description : {guild_data['description']}\n"""
     else:
         profile_data['guilds'] = "None"
             
     services = {
         'steam': 'https://steamcommunity.com/profiles/',
-        'github': 'https://github.com/',
+        'spotify': 'https://open.spotify.com/user/',
+        'youtube': 'https://www.youtube.com/channel/',
         'twitch': 'https://www.twitch.tv/',
-        'youtube': 'https://www.youtube.com/channel/'
+        'github': 'https://github.com/',
+        'reddit': 'https://www.reddit.com/user/',
+        'twitter': 'https://twitter.com/'
     }
     
     account_types = [
-        ('steam', 'id'),
-        ('github', 'name'),
-        ('twitch', 'name'),
-        ('youtube', 'id')
+        ('steam', 0),
+        ('spotify', 0),
+        ('youtube', 0),
+        ('twitch', 1),
+        ('github', 1),
+        ('reddit', 1),
+        ('twitter', 1)
     ]
             
     if profile_data['connected_accounts']:
         profile_data['accounts'] = ""
         for connected_account in profile_data['connected_accounts']:
             profile_data['accounts'] += f"""\n
-    Account ID : {connected_account['id']}
-    Account name : {connected_account['name']}
-    Account service : {connected_account['type']}\n"""
-            
+\tAccount ID : {connected_account['id']}
+\tAccount Name : {connected_account['name']}
+\tAccount service : {connected_account['type']}"""
+    
             for i, b in account_types:
                 account_type = 'id'
                 if b:
                     account_type = 'name'
                 if connected_account['type'] == i:
-                    profile_data['accounts'] += f"Account url : {services[i]}{connected_account[account_type]}\n"
+                    account_url = f"{services[i]}{connected_account[account_type]}"
+                    profile_data['accounts'] += f"\n\tAccount url : {account_url}"
+    else:
+        profile_data['accounts'] = "None"
             
             
             
@@ -79,4 +88,5 @@ Banner color : {profile_data['user']['banner_color']}
 Accent color : {profile_data['user']['accent_color']}
 Bio : {profile_data['user']['bio']}
 Mutual Guilds : {profile_data['guilds']}
+Connected Accounts : {profile_data['accounts']}
 """

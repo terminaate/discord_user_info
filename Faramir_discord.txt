@@ -1,0 +1,26 @@
+
+ID : 174560632182407168
+Username : Faramir#0700
+When account created : 2016-04-26 19:41:37
+Avatar : https://cdn.discordapp.com/avatars/174560632182407168/a849cd223b6052eebf4a2be8c77555ba
+HypeSquad : None
+Nitro : False
+When buy nitro : None
+When boost server : None
+Banner : https://cdn.discordapp.com/banners/174560632182407168/None?size=1024
+Banner color : None
+Accent color : None
+Bio : None
+Mutual Guilds : 
+
+    Guild ID : 457902248660434944
+    User Guild Nick : Thrill
+    Guild name : TENDERLY
+    Guild description : Сервер на котором тебя всё устроит :3
+
+Connected Accounts : 
+
+            Account ID : 76561197999788066
+            Account Name : Silencer
+            Account service : steam
+
