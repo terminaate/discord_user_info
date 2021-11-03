@@ -26,11 +26,7 @@ console("clear")
 def create_txt(name : str):
     f = open(f"{name}.txt", 'a')
     f.close()
-     
-<<<<<<< HEAD
-=======
-     
->>>>>>> e06d4b1 (Maybe final release)
+ 
 def get_profile_data(userid):
     profile_data = rt.get(
         f"https://discord.com/api/v9/users/{userid}/profile?with_mutual_guilds=true",
