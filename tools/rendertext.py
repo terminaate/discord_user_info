@@ -1,5 +1,9 @@
 from tools.userid2date import convert
+<<<<<<< HEAD
 from tools.accounts.connected_accounts import get_connected_accounts
+=======
+from tools.connected_accounts import get_connected_accounts
+>>>>>>> e06d4b1 (Maybe final release)
 from tools.mutual_guilds import get_mutual_guilds
 
 def rendertext(profile_data):
